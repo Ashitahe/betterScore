@@ -1,0 +1,29 @@
+<view class="compareContainer">
+    <!-- 基础信息 -->
+    <view class="table">
+        <van-cell title="年级" is-link value="{{ showGrade }}" arrow-direction="down" bindtap="handleShow" />
+        <van-cell wx:for="{{recordList}}" wx:key="_id" title="{{item.record.examName}}" value="{{item.record.formatDate}}" icon="records" />
+    </view>
+    <!-- 图表展示 -->
+    <view class="charts">
+        <view class="chartItem" wx:if="{{showChart}}">
+            <ec-canvas id="Chart2" ec="{{ barChart }}"></ec-canvas>
+        </view>
+        <view class="chartItem" wx:if="{{showChart}}">
+            <ec-canvas id="Chart1" ec="{{ categoryChart }}"></ec-canvas>
+        </view>
+    </view>
+    <!-- 弹窗 -->
+    <view class="popup">
+        <van-popup show="{{show}}" position="bottom" custom-style="height: 600rpx" closeable bind:close="onClose">
+            <view class="selectGroup">
+                <van-radio-group model:value="{{ gradeRadio }}" direction="horizontal">
+                    <van-radio class="selectItem" wx:for="{{gradeList}}" wx:key="name" name="{{item.name}}">{{item.name}}</van-radio>
+                </van-radio-group>
+            </view>
+            <view class="btn">
+                <van-button type="primary" round block size="small" bind:click="findRecord">确认</van-button>
+            </view>
+        </van-popup>
+    </view>
+</view>

@@ -1,0 +1,45 @@
+<view class="indexContainer">
+    <view class="table">
+        <van-cell title="年级" is-link value="{{ showRadio }}" arrow-direction="down" bindtap="handleShow" />
+        <van-cell-group wx:for="{{showRecordList}}" wx:if="{{showRecordList.length > 0}}" title="{{item.grade}}" wx:key="grade">
+            <van-swipe-cell class="swipeCell" right-width="{{ 65 }}" left-width="{{ 65 }}" wx:for="{{item.recordList}}" wx:for-item="e" wx:key="_id">
+                <view slot="left" class="edit" bindtap="toEdit" data-id="{{e._id}}">编辑</view>
+                <van-cell title="{{e.record.examName}}" value="{{e.record.formatDate}}" bind:click="showDialog" data-id="{{e._id}}" />
+                <view slot="right" class="delete" bindtap="toDelete" data-id="{{e._id}}">删除</view>
+            </van-swipe-cell>
+        </van-cell-group>
+    </view>
+    <view class="btns">
+        <view class="btnItem">
+            <van-button type="info" block size="small" bind:click="compareScore">成绩对比</van-button>
+        </view>
+    </view>
+    <!-- 查看成绩弹出框 -->
+    <van-dialog use-slot title="{{dialogData.examName}}" show="{{ showScore }}">
+        <view class="examInfo">
+            <view class="couresInfo">
+                <view class="courseItem" wx:for="{{dialogData.course}}" wx:key="index">
+                    <text class="course">{{item.name}}</text>
+                    <text class="score">{{item.score}}</text>
+                </view>
+            </view>
+            <view class="rank">
+                <van-cell title="总分" value="{{dialogData.score}}" />
+                <van-cell title="平均分" value="{{dialogData.averageScore}}" />
+                <van-cell title="班级排名" value="{{dialogData.classRank}}" />
+                <van-cell title="年级排名" value="{{dialogData.gradeRank}}" />
+            </view>
+        </view>
+    </van-dialog>
+    <!-- 年级选择弹出框 -->
+    <van-popup show="{{show}}" position="bottom" custom-style="height: 600rpx" closeable bind:close="onClose">
+        <view class="selectGroup">
+            <van-radio-group model:value="{{ radio }}" direction="horizontal">
+                <van-radio class="selectItem" wx:for="{{gradeList}}" wx:key="name" name="{{item.name}}">{{item.name}}</van-radio>
+            </van-radio-group>
+        </view>
+        <view class="btn">
+            <van-button type="primary" round block size="small" bind:click="findRecord">确认</van-button>
+        </view>
+    </van-popup>
+</view>

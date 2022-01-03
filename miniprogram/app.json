@@ -1,0 +1,63 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/compare/compare",
+        "pages/chart/chart",
+        "pages/record/record",
+        "pages/courses/courses",
+        "pages/personal/personal"
+    ],
+    "window": {
+        "backgroundColor": "#F6F6F6",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#F6F6F6",
+        "navigationBarTitleText": "成绩记录",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "list": [{
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "static/images/home.png",
+                "selectedIconPath": "static/images/home-active.png"
+            },
+            {
+                "pagePath": "pages/record/record",
+                "text": "成绩登记",
+                "iconPath": "static/images/report.png",
+                "selectedIconPath": "static/images/report-active.png"
+            },
+            {
+                "pagePath": "pages/chart/chart",
+                "text": "可视化",
+                "iconPath": "static/images/chart.png",
+                "selectedIconPath": "static/images/chart-active.png"
+            },
+            {
+                "pagePath": "pages/personal/personal",
+                "text": "我的",
+                "iconPath": "static/images/my.png",
+                "selectedIconPath": "static/images/my-active.png"
+            }
+        ]
+    },
+    "usingComponents": {
+        "ec-canvas": "./components/ec-canvas/ec-canvas",
+        "van-button": "@vant/weapp/button/index",
+        "van-cell": "@vant/weapp/cell/index",
+        "van-cell-group": "@vant/weapp/cell-group/index",
+        "van-popup": "@vant/weapp/popup/index",
+        "van-radio": "@vant/weapp/radio/index",
+        "van-radio-group": "@vant/weapp/radio-group/index",
+        "van-field": "@vant/weapp/field/index",
+        "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+        "van-picker": "@vant/weapp/picker/index",
+        "van-icon": "@vant/weapp/icon/index",
+        "van-circle": "@vant/weapp/circle/index",
+        "van-notify": "@vant/weapp/notify/index",
+        "van-toast": "@vant/weapp/toast/index",
+        "van-dialog": "@vant/weapp/dialog/index",
+        "van-swipe-cell": "@vant/weapp/swipe-cell/index"
+    },
+    "sitemapLocation": "sitemap.json"
+}

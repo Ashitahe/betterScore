@@ -1,0 +1,45 @@
+<view class="coursesContainer">
+    <van-toast id="van-toast" />
+    <!-- 基础表格 -->
+    <view class="table">
+        <van-cell title="年级" is-link value="{{showGrade}}{{showTerm}}" arrow-direction="down" bindtap="handleGrade" />
+        <van-cell title="科目信息以及满分" class="cellTitle" icon="info-o" />
+        <view class="inputCell" wx:for="{{course}}" wx:key="name">
+            <van-field label="{{item.name}}" class="inputBox" placeholder="请输入{{item.name}}的满分值" value="{{item.total}}" bind:input="onInput" type="number" id="{{item.name}}" />
+            <van-icon name="close" class="closeIcon" bind:click="onDelete" data-index="{{index}}" />
+        </view>
+
+    </view>
+    <view class="btns">
+        <view class="btnItem">
+            <van-button type="primary" block size="small" bind:click="handleAdd">+增加科目信息</van-button>
+        </view>
+        <view class="btnItem">
+            <van-button type="info" block size="small" bind:click="handleSave">更新</van-button>
+        </view>
+    </view>
+    <!-- 选择年级弹出框 -->
+    <van-popup show="{{showGradeSelect}}" position="bottom" class="gradeSelector" custom-style="height: 800rpx" closeable bind:close="onCloseGrade">
+        <view class="selectGroup">
+            <view class="groupTitle">年级</view>
+            <van-radio-group model:value="{{ gradeRadio }}" direction="horizontal">
+                <van-radio class="selectItem" wx:for="{{gradeList}}" wx:key="name" name="{{item.name}}">{{item.name}}</van-radio>
+            </van-radio-group>
+        </view>
+        <view class="selectGroup">
+            <view class="groupTitle">学期</view>
+            <van-radio-group model:value="{{ termRadio }}" direction="horizontal">
+                <van-radio class="selectItem" wx:for="{{termList}}" wx:key="name" name="{{item.name}}">{{item.name}}</van-radio>
+            </van-radio-group>
+        </view>
+        <view class="btn">
+            <van-button type="primary" round block size="small" bind:click="onConfirm">确认</van-button>
+        </view>
+    </van-popup>
+    <!-- 添加科目弹出框 -->
+    <van-dialog use-slot show="{{ showAddSubject }}" bind:confirm="confirm" bind:cancel="cancel" show-cancel-button confirmButtonText="提交">
+        <view class="addSubject">
+            <van-field label="科目名称" placeholder="请输入科目名称" model:value="{{addSubjectName}}" focus />
+        </view>
+    </van-dialog>
+</view>

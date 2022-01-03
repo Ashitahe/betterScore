@@ -1,0 +1,60 @@
+<view class="recordContainer">
+    <!-- 顶部通知栏 -->
+    <van-notify id="van-notify" />
+    <van-toast id="van-toast" />
+    <view class="content">
+        <!-- 基础表格 -->
+        <view class="table">
+            <van-cell title="年级" is-link value="{{showGrade}}{{showTerm}}" arrow-direction="down" bindtap="handleGrade" />
+            <van-cell title="考试信息" class="cellTitle" icon="records" />
+            <van-field label="考试名称" model:value="{{ examName }}" placeholder="请输入考试名称" />
+            <van-cell title="考试日期" is-link value="{{showDate}}" arrow-direction="down" bindtap="handleDate" />
+            <van-cell title="排名信息" class="cellTitle" icon="bar-chart-o" />
+            <van-field label="班级排名" model:value="{{ classRank }}" placeholder="本次排名" type="number" />
+            <van-field label="年级排名" model:value="{{ gradeRank }}" placeholder="本次排名" type="number" />
+            <van-cell title="科目信息" class="cellTitle" icon="info-o" />
+            <van-field wx:for="{{course}}" wx:key="name" label="{{item.name}}" value="{{ item.score }}" id="{{item.name}}" bindinput="handleInput" placeholder="本次考试分数" type="number" />
+            <view class="subjectSetting" wx:if="{{isNew}}" bindtap="toCourses">配置课程</view>
+            <!-- 显示分数及其占比 -->
+            <view class="score">
+                <van-cell title="总分 ( {{totalScore}} )" class="cellTitle" icon="eye-o" />
+                <van-circle wx:if="{{showCircle}}" class="circle" value="{{ rate }}" stroke-width="8" color="{{gradientColor}}" text="得分{{totalGetScore}}" />
+            </view>
+            <van-cell title="统计" class="cellTitle" icon="star-o" />
+            <van-cell title="平均分" value="{{averageScore}}" />
+            <van-cell title="最高分" value="{{TopScore}}" />
+            <van-cell title="最低分" value="{{LowerScore}}" />
+        </view>
+        <!-- 底部按钮 -->
+        <view class="btns">
+            <view class="btnItem">
+                <van-button type="primary" bind:click="saveRecord" size="small" round block>保存</van-button>
+            </view>
+        </view>
+    </view>
+
+    <!-- 选择年级弹出框 -->
+    <van-popup show="{{showGradeSelect}}" position="bottom" class="gradeSelector" custom-style="height:800rpx" closeable bind:close="onCloseGrade">
+        <view class="selectGroup">
+            <view class="groupTitle">年级</view>
+            <van-radio-group model:value="{{ gradeRadio }}" direction="horizontal">
+                <van-radio class="selectItem" wx:for="{{gradeList}}" wx:key="name" name="{{item.name}}">{{item.name}}</van-radio>
+            </van-radio-group>
+        </view>
+        <view class="selectGroup">
+            <view class="groupTitle">学期</view>
+            <van-radio-group model:value="{{ termRadio }}" direction="horizontal">
+                <van-radio class="selectItem" wx:for="{{termList}}" wx:key="name" name="{{item.name}}">{{item.name}}</van-radio>
+            </van-radio-group>
+        </view>
+        <view class="btn">
+            <van-button type="primary" round block size="small" bind:click="onConfirm">确认</van-button>
+        </view>
+    </van-popup>
+
+    <!-- 选择日期弹出框 -->
+    <van-popup show="{{showDateSelect}}" position="bottom" custom-style="height: 600rpx" bind:close="onCloseDate">
+        <van-datetime-picker type="date" value="{{ examDate }}" bind:confirm="confirmDate" bind:cancel="onCloseDate" min-date="{{ minDate }}" formatter="{{ formatter }}" />
+    </van-popup>
+
+</view>

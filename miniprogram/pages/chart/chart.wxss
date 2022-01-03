@@ -1,0 +1,17 @@
+/* pages/chart/chart.wxss */
+
+/* 年级选择弹出框的样式 */
+.chartContainer .gradeSelector {
+    z-index: 20;
+}
+
+.chartContainer .selectGroup {
+    margin-top: 60rpx;
+    padding: 0 50rpx;
+}
+
+.chartContainer .selectGroup .groupTitle {
+    font-size: 40rpx;
+    margin: 20rpx;
+    color: #84DFFF;
+}

@@ -1,0 +1,55 @@
+/* pages/courses/courses.wxss */
+/* 基础表格区域 */
+/* 输入框 */
+.inputCell {
+    display: flex;
+    /* border-bottom: 1rpx solid #84DFFF; */
+}
+.inputCell .inputBox{
+    flex: 5;
+}
+.inputCell .closeIcon{
+    flex: 1;
+    /* border: 0.5rpx solid #84DFFF; */
+    /* border-bottom: 1rpx solid #84DFFF; */
+    background-color: #ffffff;
+}
+/* 添加科目弹出框 */
+.addSubject {
+    margin: 20rpx;
+}
+
+/* 按钮区域 */
+.coursesContainer .btns {
+    margin: 20rpx 30rpx;
+}
+.coursesContainer .btns .btnItem {
+    margin-bottom: 26rpx;
+}
+
+/* 年级选择弹出框的样式 */
+.coursesContainer .gradeSelector {
+    z-index: 20;
+}
+
+.coursesContainer .selectGroup {
+    margin-top: 60rpx;
+    padding: 0 50rpx;
+}
+
+.coursesContainer .selectGroup .groupTitle {
+    font-size: 40rpx;
+    margin: 20rpx;
+    color: #84DFFF;
+}
+
+.selectItem {
+    margin: 10rpx 0;
+    width: 33%;
+    font-size: 28rpx;
+}
+
+.coursesContainer .btn {
+    margin: 30rpx 30rpx;
+
+}

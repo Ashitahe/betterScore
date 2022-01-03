@@ -1,0 +1,77 @@
+/* pages/index/index.wxss */
+/* 基础表格区域 */
+
+.van-swipe-cell__left,
+.van-swipe-cell__right {
+    display: inline-block;
+    width: 65px;
+    height: 44px;
+    font-size: 15px;
+    line-height: 44px;
+    color: #fff;
+    text-align: center;
+    background-color: #f44;
+}
+
+.van-swipe-cell__left {
+    background-color: #1989fa;
+}
+
+
+.indexContainer .table .swipeCell .delete {
+    text-align: center;
+    background-color: #ee0a24;
+    color: #ffffff;
+}
+
+/* 按钮区域 */
+.indexContainer .btns {
+    margin: 20rpx 30rpx;
+}
+
+.indexContainer .btns .btnItem {
+    margin-bottom: 26rpx;
+}
+
+/* 成绩详情弹出框 */
+.couresInfo {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.couresInfo .courseItem {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    height: 150rpx;
+    text-align: center;
+    line-height: 150rpx;
+}
+
+.couresInfo .courseItem .course {
+    font-size: 40rpx;
+    height: 40%;
+}
+
+.couresInfo .courseItem .score {
+    font-size: 30rpx;
+    height: 60%;
+    color: red;
+}
+
+/* 年级选择弹出框的样式 */
+.indexContainer .selectGroup {
+    margin-top: 80rpx;
+    padding: 0 50rpx;
+}
+
+.selectItem {
+    margin: 10rpx 0;
+    width: 33%;
+    font-size: 28rpx;
+}
+
+.indexContainer .btn {
+    margin: 30rpx 30rpx;
+
+}

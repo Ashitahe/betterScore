@@ -1,0 +1,44 @@
+<view class="chartContainer">
+    <!-- 数据展示 -->
+    <view class="dataShow">
+        <van-cell title="年级" is-link value="{{showGrade}}{{showTerm}}" arrow-direction="down" bindtap="handleGrade" />
+        <van-cell title="考试名" is-link value="{{showExamName}}" arrow-direction="down" bindtap="handleExam" />
+        <!-- <view show="{{showIndicate}}">本学期暂无考试数据</view> -->
+        <!-- 图表展示 -->
+        <view class="chartItem" wx:if="{{showChart}}">
+            <ec-canvas id="radarChart" ec="{{ radarChart }}"></ec-canvas>
+        </view>
+        <view class="chartItem" wx:if="{{showChart}}">
+            <ec-canvas id="pieChart" ec="{{ pieChart }}"></ec-canvas>
+        </view>
+        <view class="chartItem" wx:if="{{showChart}}">
+            <ec-canvas id="barChart" ec="{{ barChart }}"></ec-canvas>
+        </view>
+        <view class="chartItem" wx:if="{{showChart}}">
+            <ec-canvas id="categoryChart" ec="{{ categoryChart }}"></ec-canvas>
+        </view>
+    </view>
+    <!-- 选择年级弹出框 -->
+    <van-popup show="{{showGradeSelect}}" position="bottom" class="gradeSelector" custom-style="height: 800rpx" closeable bind:close="onCloseGrade">
+        <view class="selectGroup">
+            <view class="groupTitle">年级</view>
+            <van-radio-group model:value="{{ gradeRadio }}" direction="horizontal">
+                <van-radio class="selectItem" wx:for="{{gradeList}}" wx:key="name" name="{{item.name}}">{{item.name}}</van-radio>
+            </van-radio-group>
+        </view>
+        <view class="selectGroup">
+            <view class="groupTitle">学期</view>
+            <van-radio-group model:value="{{ termRadio }}" direction="horizontal">
+                <van-radio class="selectItem" wx:for="{{termList}}" wx:key="name" name="{{item.name}}">{{item.name}}</van-radio>
+            </van-radio-group>
+        </view>
+        <view class="btn">
+            <van-button type="primary" round block size="small" bind:click="onConfirm">确认</van-button>
+        </view>
+    </van-popup>
+    <!-- 选择考试弹框 -->
+    <van-popup show="{{showExamSelect}}" position="bottom" custom-style="height: 600rpx" bind:close="onCloseExam">
+        <van-picker columns="{{ examNameList }}" default-index="{{ 0 }}" show-toolbar bind:cancel="onCloseExam" bind:confirm="onConfirmExam" />
+    </van-popup>
+
+</view>

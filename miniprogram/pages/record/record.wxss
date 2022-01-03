@@ -1,0 +1,70 @@
+/* pages/record/record.wxss */
+/* 基础内容显示区域 */
+
+.recordContainer .content {
+    z-index: 10;
+}
+
+/* 基础表格显示区域 */
+.cellTitle {
+    font-weight: bold;
+}
+
+.subjectSetting {
+    text-align: center;
+    width: 100%;
+    height: 40rpx;
+    font-size: 30rpx;
+    color: #84DFFF;
+    background-color: #fff;
+}
+
+/* 总分显示区域 */
+.recordContainer .score {
+    display: flex;
+    flex-direction: column;
+}
+
+.recordContainer .score .circle {
+    width: 300rpx;
+    height: 300rpx;
+    flex: 1;
+    align-self: center;
+    margin-left: 150rpx;
+}
+
+/* 按钮区域 */
+.recordContainer .btns {
+    margin: 20rpx 30rpx;
+}
+
+.recordContainer .btns .btnItem {
+    margin-bottom: 28rpx;
+}
+
+/* 年级选择弹出框的样式 */
+.recordContainer .gradeSelector {
+    z-index: 20;
+}
+
+.recordContainer .selectGroup {
+    margin-top: 60rpx;
+    padding: 0 50rpx;
+}
+
+.recordContainer .selectGroup .groupTitle {
+    font-size: 40rpx;
+    margin: 20rpx;
+    color: #84DFFF;
+}
+
+.selectItem {
+    margin: 10rpx 0;
+    width: 33%;
+    font-size: 28rpx;
+}
+
+.recordContainer .btn {
+    margin: 30rpx 30rpx;
+
+}
