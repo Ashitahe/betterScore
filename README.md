@@ -1,12 +1,33 @@
-# 云开发 quickstart
+# 中小学生个人成绩记录分析系统
 
-这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：
+采用`vant weapp` 组件库开发，基于微信小程序原生云开发搭建后台数据库
 
-- 数据库：一个既可在小程序前端操作，也能在云函数中读写的 JSON 文档型数据库
-- 文件存储：在小程序前端直接上传/下载云端文件，在云开发控制台可视化管理
-- 云函数：在云端运行的代码，微信私有协议天然鉴权，开发者只需编写业务逻辑代码
+该程序提供可视化数据分析每次考试成绩
 
-## 参考文档
+**启动本项目前请先上传云函数并在数据库创建`score`、`gradeSubject`文档集合**
 
-- [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
+## 在线demo
+
+在微信中扫描下面二维码即可体验：
+
+![gh_1f3f2ef697f1_258](https://i0.hdslb.com/bfs/album/3c8265f176872b2676d71954b2ac30090a32cf15.jpg)
+
+## npm依赖
+
+```sh
+// vantUI
+npm install @vant/weapp
+// 计算属性
+npm install miniprogram-computed
+```
+
+## 插件
+
+[小程序版`echarts`](https://github.com/ecomfe/echarts-for-weixin)。若打包的小程序过大，请[在线构建`echarts`](https://echarts.apache.org/zh/builder.html)以减小体积。仅需将在线构建的`echarts.js`替换`ec-canvas`组件下的`echarts.js`既可
+
+`echarts`构建配置
+
+* 图表：柱状图、折线图、饼图、雷达图，
+* 坐标系：直角坐标系
+* 组件：标题、图例、提示框、标注
 

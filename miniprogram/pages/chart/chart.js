@@ -154,6 +154,7 @@ const getCategoryOptions = () => ({
     },
   }]
 })
+const app = getApp()
 // 引入计算属性
 const computedBehavior = require('miniprogram-computed').behavior;
 Page({
@@ -162,6 +163,19 @@ Page({
    * 页面的初始数据
    */
   data: {
+    gradeList: [...allGrade], // 年级
+    termList: [...allTerm], // 学期
+    examList: [], // 考试列表
+    showExamName: '', // 展示的考试名称
+    showGrade: app.data.defaultGrade, // 展示的年级
+    showTerm: '上学期', // 展示的学期
+    gradeRadio: app.data.defaultGrade,
+    termRadio: '上学期',
+    showGradeSelect: false, // 年级选择框
+    showExamSelect: false,
+    showExamSelect: false,
+    showChart: false,
+    showIndicate: false,
     radarChart: {
       onInit(canvas, width, height, dpr) {
         const chart = echarts.init(canvas, null, {
@@ -210,19 +224,6 @@ Page({
         return chart;
       },
     },
-    gradeList: [...allGrade], // 年级
-    termList: [...allTerm], // 学期
-    examList: [], // 考试列表
-    showExamName: '', // 展示的考试名称
-    showGrade: '一年级', // 展示的年级
-    showTerm: '上学期', // 展示的学期
-    gradeRadio: '一年级',
-    termRadio: '上学期',
-    showGradeSelect: false, // 年级选择框
-    showExamSelect: false,
-    showExamSelect: false,
-    showChart: false,
-    showIndicate: false
   },
   /**
    * 计算属性
@@ -374,9 +375,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getExamRecord()
+
   },
   onShow: function () {
+    this.setData({
+      showGrade: app.data.defaultGrade,
+      gradeRadio: app.data.defaultGrade
+    })
     this.getExamRecord()
   }
 })

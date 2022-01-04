@@ -48,11 +48,13 @@ export const allGrade = [{
         name: "大四"
     },
 ];
+// 学期的基本信息
 export const allTerm = [{
     name: '上学期'
 }, {
     name: '下学期'
 }]
+// 默认课程配置
 export const defaultSubject = [{
         name: '语文',
         score: '',

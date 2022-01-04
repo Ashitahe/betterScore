@@ -18,26 +18,26 @@
         "list": [{
                 "pagePath": "pages/index/index",
                 "text": "首页",
-                "iconPath": "static/images/home.png",
-                "selectedIconPath": "static/images/home-active.png"
+                "iconPath": "static/tabBar/home.png",
+                "selectedIconPath": "static/tabBar/home-active.png"
             },
             {
                 "pagePath": "pages/record/record",
                 "text": "成绩登记",
-                "iconPath": "static/images/report.png",
-                "selectedIconPath": "static/images/report-active.png"
+                "iconPath": "static/tabBar/report.png",
+                "selectedIconPath": "static/tabBar/report-active.png"
             },
             {
                 "pagePath": "pages/chart/chart",
                 "text": "可视化",
-                "iconPath": "static/images/chart.png",
-                "selectedIconPath": "static/images/chart-active.png"
+                "iconPath": "static/tabBar/chart.png",
+                "selectedIconPath": "static/tabBar/chart-active.png"
             },
             {
                 "pagePath": "pages/personal/personal",
                 "text": "我的",
-                "iconPath": "static/images/my.png",
-                "selectedIconPath": "static/images/my-active.png"
+                "iconPath": "static/tabBar/my.png",
+                "selectedIconPath": "static/tabBar/my-active.png"
             }
         ]
     },

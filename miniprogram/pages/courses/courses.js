@@ -5,6 +5,8 @@ import {
     allTerm,
     defaultSubject
 } from '../../utils/baseData';
+// 引入全局变量
+const app = getApp()
 import {
     request
 } from '../../utils/request';
@@ -14,15 +16,16 @@ Page({
      */
     data: {
         gradeList: [...allGrade], // 能够选择年级列表
-        gradeRadio: '一年级', // 选择的年级
+        gradeRadio: app.data.defaultGrade, // 选择的年级
+        showGrade: app.data.defaultGrade, // 显示的年级
         termRadio: '上学期', // 选择的学期
-        showGrade: '一年级', // 显示的年级
         showTerm: '上学期', // 显示的学期
-        showGradeSelect: false, // 显示年级选择框
+        addSubjectName: '', // 新增的科目名称
         termList: [...allTerm], // 所有学期列表
         course: [], // 默认课程信息
+        showGradeSelect: false, // 显示年级选择框
         showAddSubject: false, // 添加科目弹出框
-        addSubjectName: '', // 新增的科目名称
+
     },
     // 控制科目添加弹出框
     handleAdd() {
@@ -177,8 +180,6 @@ Page({
             })
             const res = await request('findAll', params)
             if (res.result.data.length > 0) {
-                this._id = res.result.data[0]._id
-                console.log('request', this._id);
                 this.setData({
                     course: res.result.data[0].course
                 })
@@ -200,7 +201,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.getCourse()
+
     },
 
     /**
@@ -209,12 +210,15 @@ Page({
     onReady: function () {
 
     },
-
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this.setData({
+            gradeRadio: app.data.defaultGrade,
+            showGrade: app.data.defaultGrade,
+        })
+        this.getCourse()
     },
 
     /**
@@ -223,32 +227,4 @@ Page({
     onHide: function () {
 
     },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
 })

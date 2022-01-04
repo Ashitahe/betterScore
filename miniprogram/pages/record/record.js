@@ -10,6 +10,8 @@ import {
     allTerm,
     defaultSubject
 } from '../../utils/baseData';
+// 引入全局变量
+const app = getApp()
 // 引入计算属性
 const computedBehavior = require('miniprogram-computed').behavior;
 Page({
@@ -22,8 +24,8 @@ Page({
         showCircle: true, // 控制圆圈显示
         gradeList: [...allGrade], // 所有年级列表       
         termList: [...allTerm], // 所有学期列表
-        gradeRadio: '一年级', // 年级选择框的值
-        showGrade: '一年级', // 显示的年级值
+        gradeRadio: app.data.defaultGrade, // 年级选择框的值
+        showGrade: app.data.defaultGrade, // 显示的年级值
         termRadio: '上学期', // 学期选择框的值
         showTerm: '上学期', // 显示的学期值
         examName: '', // 考试名称
@@ -167,6 +169,8 @@ Page({
             showGradeSelect: false,
             showCircle: true
         })
+        // 重新请求课程配置信息
+        this.getCourse()
     },
     // 关闭日期选择弹出框
     onCloseDate() {
@@ -371,6 +375,8 @@ Page({
             })
             this.getCourse()
         }
+        console.log(app);
+        console.log('默认年级', app.data.defaultGrade);
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -383,6 +389,10 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        this.setData({
+            gradeRadio: app.data.defaultGrade,
+            showGrade: app.data.defaultGrade
+        })
         this.getCourse()
     },
 

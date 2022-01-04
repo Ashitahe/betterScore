@@ -5,16 +5,16 @@
                 <open-data type="userAvatarUrl"></open-data>
             </view>
         </view>
-        <van-cell title="当前年级" is-link value="{{showTerm}}" bindtap="showGradeSelector" arrow-direction="down" icon="location-o">
+        <van-cell title="当前年级" is-link value="{{showGrade}}" bindtap="showGradeSelector" arrow-direction="down" icon="location-o">
         </van-cell>
-        <van-cell is-link title="课程配置" link-type="navigateTo" url="../courses/courses" icon="setting-o" />
+        <van-cell is-link title="课程配置" bind:tap="toCourse" icon="setting-o" />
         <van-cell title="联系作者" icon="service-o">sphinx@asuhe.fun</van-cell>
     </view>
     <!-- <gradeSelector></gradeSelector> -->
     <!-- 年级选择弹出框 -->
     <van-popup show="{{show}}" position="bottom" custom-style="height: 600rpx" closeable bind:close="onClose">
         <view class="selectGroup">
-            <van-radio-group model:value="{{ termRadio }}" direction="horizontal">
+            <van-radio-group model:value="{{ gradeRadio }}" direction="horizontal">
                 <van-radio class="selectItem" wx:for="{{gradeList}}" wx:key="name" name="{{item.name}}">{{item.name}}</van-radio>
             </van-radio-group>
         </view>

@@ -58,14 +58,15 @@ const getCategoryOptions = () => ({
     },
     series: categoryData
 })
+const app = getApp()
 Page({
     /**
      * 页面的初始数据
      */
     data: {
         show: false, // 控制底部弹窗
-        gradeRadio: '一年级', // 底部弹框选择的值
-        showGrade: '一年级', // 用来展示的选择值
+        gradeRadio: app.data.defaultGrade, // 底部弹框选择的值
+        showGrade: app.data.defaultGrade, // 用来展示的选择值
         gradeList: [...allGrade], // 选择框的年级列表
         recordList: [],
         showChart: false,
@@ -177,7 +178,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.findRecord()
+
     },
 
     /**
@@ -186,12 +187,15 @@ Page({
     onReady: function () {
 
     },
-
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this.setData({
+            gradeRadio: app.data.defaultGrade,
+            showGrade: app.data.defaultGrade,
+        })
+        this.findRecord()
     },
 
     /**
